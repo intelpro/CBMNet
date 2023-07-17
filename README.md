@@ -4,14 +4,19 @@
 
 
 ## Qualitative video demos on ERF-X170FPS dataset 
+## Falling pop-corn
 <img src="https://github.com/intelpro/CBMNet/raw/main/figure/popcorn.gif" width="100%" height="100%">
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
+
+## Flowers
 <img src="https://github.com/intelpro/CBMNet/raw/main/figure/flower.gif" width="100%" height="100%">
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
+
+## Driving scene
 <img src="https://github.com/intelpro/CBMNet/raw/main/figure/driving.gif" width="100%" height="100%">
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
