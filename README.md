@@ -4,7 +4,7 @@
 
 
 ## Qualitative video demos on ERF-X170FPS dataset 
-<img src="https://github.com/intelpro/CBMNet/raw/main/figure/popcorn.gif" width="80%" height="80%">
+<img src="https://github.com/intelpro/CBMNet/raw/main/figure/popcorn.gif" width="100%" height="100%">
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
