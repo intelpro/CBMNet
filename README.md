@@ -10,20 +10,20 @@
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
 
-## Flowers
+### Flowers
 <img src="https://github.com/intelpro/CBMNet/raw/main/figure/flower.gif" width="100%" height="100%">
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
 
-## Driving scene
+### Driving scene
 <img src="https://github.com/intelpro/CBMNet/raw/main/figure/driving.gif" width="100%" height="100%">
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
 
 ## ERF-X170FPS dataset
-#### Dataset of high-resolution (1440x975), high-fps (170fps) video frames with extremely large motion using the beam-splitter acquisition system:
+#### Dataset of high-resolution (1440x975), high-fps (170fps) video frames plus high resolution events extremely large motion using the beam-splitter acquisition system:
 ![image info](./figure/ERF_dataset.png)
 
 ### Downloading datasets 
