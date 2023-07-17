@@ -27,7 +27,7 @@
 ![image info](./figure/ERF_dataset.png)
 
 ### Quantitative results on the ERF-X170FPS datasets
-<img src="https://github.com/intelpro/CBMNet/raw/main/figure/Quantitative_eval_ERF_x170FPS.png" width="70%" height="70%">
+<img src="https://github.com/intelpro/CBMNet/raw/main/figure/Quantitative_eval_ERF_x170FPS.png" width="60%" height="60%">
 
 
 ### Downloading datasets 
