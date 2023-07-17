@@ -8,6 +8,10 @@
 <!--
 ![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
 -->
+<img src="https://github.com/intelpro/CBMNet/raw/main/figure/flower.gif" width="100%" height="100%">
+<!--
+![real_event_045_resized](/figure/video_results_real_event3.gif "real_event_045_resized")
+-->
 
 ## ERF-X170FPS dataset
 #### Dataset of high-resolution (1440x975), high-fps (170fps) video frames with extremely large motion using the beam-splitter acquisition system:
