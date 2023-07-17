@@ -30,7 +30,7 @@
 <img src="https://github.com/intelpro/CBMNet/raw/main/figure/Quantitative_eval_ERF_x170FPS.png" width="60%" height="60%">
 
 
-### Downloading datasets 
+### Downloading ERF-X170FPS datasets 
 You can download the raw-data(collected frame and events) from this links
 
 * [[RAW-Train]()]
