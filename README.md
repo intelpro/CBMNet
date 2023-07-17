@@ -27,7 +27,7 @@
 -->
 
 ## ERF-X170FPS dataset
-#### Dataset of high-resolution (1440x975), high-fps (170fps) video frames plus high resolution events extremely large motion using the beam-splitter acquisition system:
+#### Dataset of high-resolution (1440x975), high-fps (170fps) video frames plus high resolution events with extremely large motion using the beam-splitter acquisition system:
 ![image info](./figure/ERF_dataset.png)
 
 ### Quantitative results on the ERF-X170FPS datasets
