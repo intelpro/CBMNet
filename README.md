@@ -47,6 +47,11 @@ Also, you can download the processed data(including processed event voxel repres
 
 ** Cautions: the x,y coordinates of the raw event file are multiplied by 128.
 
+## Requirements
+* PyTorch 1.8.0
+* CUDA 11.2
+* python 3.8
+
 ## Quick Usage
 
 Download repository:
