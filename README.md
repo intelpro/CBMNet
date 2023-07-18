@@ -47,7 +47,7 @@ Also, you can download the processed data(including processed event voxel repres
 
 ** Cautions: the x,y coordinates of the raw event file are multiplied by 128.
 
-### Quick Usage
+## Quick Usage
 
 Download repository:
 
@@ -55,7 +55,13 @@ Download repository:
     $ git clone https://github.com/intelpro/CBMNet
 ```
 
-Download pretrained model of our network weights
+Install correlation package:
+
+```bash
+    $ sh install_correlation.sh
+```
+
+Download pretrained model of our network weights(trained on ERF-X170FPS datasets)
 
 * [[Ours](https://drive.google.com/file/d/1VJKyuoRSMOJkl8fQlJIkc7S4Fmd2_X8K/view?usp=sharing)]
 * [[Ours-Large](https://drive.google.com/file/d/1jI6_RwhXeM-pW5CnHf0exB5RP2zp2SbY/view?usp=sharing)]
@@ -79,7 +85,7 @@ Generate an intermediate video frame:
 }
 ```
 ## Contact
-If you have any question, please send an email me(intelpro@kaist.ac.kr)
+If you have any question, please send an email to taewoo(intelpro@kaist.ac.kr)
 
 ## License
 The project codes and datasets can be used for research and education only. 
