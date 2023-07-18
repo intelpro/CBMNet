@@ -37,8 +37,8 @@
 ### Downloading ERF-X170FPS datasets 
 You can download the raw-data(collected frame and events) from this links
 
-* [[RAW-Train]()]
-* [[RAW-Test]()]
+* [[RAW-Train](http://gofile.me/5rpBN/xYrGYLjQQ)]
+* [[RAW-Test](http://gofile.me/5rpBN/AuNGFI5sF)]
 
 
 Also, you can download the processed data(including processed event voxel representation)
