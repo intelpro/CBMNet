@@ -2,7 +2,7 @@ import torch
 import argparse
 import numpy as np
 import os
-from models.model_manager import OurModel, str2bool
+from models.model_manager import OurModel
 from skimage.io import imread
 import cv2
 from utils import *
@@ -27,8 +27,10 @@ args = parser.parse_args()
 
 first_image_name = os.path.join(args.sample_folder_path, str(args.image_number).zfill(5) + '.png')
 second_image_name = os.path.join(args.sample_folder_path, str(args.image_number+1).zfill(5) + '.png')
-frame1 = torch.from_numpy(imread(first_image_name)).permute(2,0,1).float().unsqueeze(0) / 255.0
-frame3 = torch.from_numpy(imread(second_image_name)).permute(2,0,1).float().unsqueeze(0) / 255.0
+first_image_np = imread(first_image_name)
+second_image_np = imread(second_image_name)
+frame1 = torch.from_numpy(first_image_np).permute(2,0,1).float().unsqueeze(0) / 255.0
+frame3 = torch.from_numpy(second_image_np).permute(2,0,1).float().unsqueeze(0) / 255.0
 
 voxel_0t_name = os.path.join(args.sample_folder_path, str(args.image_number).zfill(5) + '_0t.npz') 
 voxel_t0_name = os.path.join(args.sample_folder_path, str(args.image_number).zfill(5) + '_t0.npz') 
@@ -96,5 +98,9 @@ with torch.no_grad():
     output = E.div_(W_)
     clean_middle_np = tensor2numpy(output)
     ## save output
-    os.makedirs(args.saved_output_dir, exist_ok=True)
-    cv2.imwrite(os.pat.join(args.saved_output_dir, str(args.image_number).zfill(5) + '.png'), cv2.cvtColor(clean_middle_np, cv2.COLOR_RGB2BGR))
+    os.makedirs(args.save_output_dir, exist_ok=True)
+    ## _0,_2 is output
+    cv2.imwrite(os.path.join(args.save_output_dir, str(args.image_number).zfill(5) + '_0.png'), cv2.cvtColor(first_image_np, cv2.COLOR_RGB2BGR))
+    cv2.imwrite(os.path.join(args.save_output_dir, str(args.image_number).zfill(5) + '_2.png'), cv2.cvtColor(second_image_np, cv2.COLOR_RGB2BGR))
+    ## _1 is output
+    cv2.imwrite(os.path.join(args.save_output_dir, str(args.image_number).zfill(5) + '_1.png'), cv2.cvtColor(clean_middle_np, cv2.COLOR_RGB2BGR))

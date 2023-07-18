@@ -1,3 +1,3 @@
 cd correlation_package
-python setup.py install
+python3 setup.py install
 cd ..

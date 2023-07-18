@@ -61,7 +61,7 @@ Install correlation package:
     $ sh install_correlation.sh
 ```
 
-Download pretrained model of our network weights(trained on ERF-X170FPS datasets)
+Download pretrained model of our network weights(trained on ERF-X170FPS datasets) and place it in ./pretrained_model/
 
 * [[Ours](https://drive.google.com/file/d/1VJKyuoRSMOJkl8fQlJIkc7S4Fmd2_X8K/view?usp=sharing)]
 * [[Ours-Large](https://drive.google.com/file/d/1jI6_RwhXeM-pW5CnHf0exB5RP2zp2SbY/view?usp=sharing)]
