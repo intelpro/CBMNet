@@ -40,11 +40,12 @@ You can download the raw-data(collected frame and events) from this links
 * [[RAW-Train](http://gofile.me/5rpBN/xYrGYLjQQ)]
 * [[RAW-Test](http://gofile.me/5rpBN/AuNGFI5sF)]
 
-
 Also, you can download the processed data(including processed event voxel representation)
 
 * [[Processed-Train]()]
 * [[Processed-Test]()]
+
+** Cautions: the x,y coordinates of the raw event file are multiplied by 128.
 
 ## Reference
 > Taewoo Kim, Yujeong Chae, Hyun-kyurl Jang, and Kuk-Jin Yoon" Event-based Video Frame Interpolation with Cross-modal Asymmetric Bidirectional Motion Fields", In _CVPR_, 2023.
