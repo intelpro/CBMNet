@@ -61,15 +61,22 @@ Install correlation package:
     $ sh install_correlation.sh
 ```
 
-Download pretrained model of our network weights(trained on ERF-X170FPS datasets) and place it in ./pretrained_model/
+Download network weights(trained on ERF-X170FPS datasets) and place downloaded model in ./pretrained_model/
 
 * [[Ours](https://drive.google.com/file/d/1VJKyuoRSMOJkl8fQlJIkc7S4Fmd2_X8K/view?usp=sharing)]
 * [[Ours-Large](https://drive.google.com/file/d/1jI6_RwhXeM-pW5CnHf0exB5RP2zp2SbY/view?usp=sharing)]
 
-Generate an intermediate video frame:
+
+Generate an intermediate video frame using ours model:
 
 ```bash
-    $ python run.py --first images/im1.png --second images/im3.png --output images/im2.png
+    $ python run_samples.py  --model_name ours --ckpt_path pretrained_model/ours_weight.pth --save_output_dir ./output --image_number 0
+```
+
+Also, you can generate intermediate video frame using ours-large model:
+
+```bash
+    $ python run_samples.py  --model_name ours_large --ckpt_path pretrained_model/ours_large_weight.pth --save_output_dir ./output --image_number 0
 ```
 
 ## Reference
