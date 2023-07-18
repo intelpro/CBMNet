@@ -47,6 +47,25 @@ Also, you can download the processed data(including processed event voxel repres
 
 ** Cautions: the x,y coordinates of the raw event file are multiplied by 128.
 
+### Quick Usage
+
+Download repository:
+
+```bash
+    $ git clone https://github.com/intelpro/CBMNet
+```
+
+Download pretrained model of our network weights
+
+* [[Ours](https://drive.google.com/file/d/1VJKyuoRSMOJkl8fQlJIkc7S4Fmd2_X8K/view?usp=sharing)]
+* [[Ours-Large](https://drive.google.com/file/d/1jI6_RwhXeM-pW5CnHf0exB5RP2zp2SbY/view?usp=sharing)]
+
+Generate an intermediate video frame:
+
+```bash
+    $ python run.py --first images/im1.png --second images/im3.png --output images/im2.png
+```
+
 ## Reference
 > Taewoo Kim, Yujeong Chae, Hyun-kyurl Jang, and Kuk-Jin Yoon" Event-based Video Frame Interpolation with Cross-modal Asymmetric Bidirectional Motion Fields", In _CVPR_, 2023.
 ```bibtex
