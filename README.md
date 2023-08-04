@@ -37,8 +37,8 @@
 ### Downloading ERF-X170FPS datasets 
 You can download the raw-data(collected frame and events) from this links
 
-* [[RAW-Train]((https://drive.google.com/file/d/1Bsf9qreziPcVEuf0_v3kjdPUh27zsFXK/view?usp=drive_link))]
-* [[RAW-Test]((https://drive.google.com/file/d/1Dk7jVQD29HqRVV11e8vxg5bDOh6KxrzL/view?usp=drive_link))]
+* [[RAW-Train](https://drive.google.com/file/d/1Bsf9qreziPcVEuf0_v3kjdPUh27zsFXK/view?usp=drive_link)]
+* [[RAW-Test](https://drive.google.com/file/d/1Dk7jVQD29HqRVV11e8vxg5bDOh6KxrzL/view?usp=drive_link)]
 
 ** Cautions: the x,y coordinates of the raw event file are multiplied by 128.
 
