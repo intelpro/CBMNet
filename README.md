@@ -82,7 +82,7 @@ Also, you can generate intermediate video frame using ours-large model:
 
 ## Pretrained model
 
-* [[Ours-L(BSERGB)]()]
+* [[Ours-L(BS-ERGB)](https://drive.google.com/file/d/1T5ycqQK4KVZQ4pAnNkr2Ff8XIWvhmj_f/view?usp=sharing)]
 
 ## Reference
 > Taewoo Kim, Yujeong Chae, Hyun-kyurl Jang, and Kuk-Jin Yoon" Event-based Video Frame Interpolation with Cross-modal Asymmetric Bidirectional Motion Fields", In _CVPR_, 2023.
