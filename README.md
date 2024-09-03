@@ -77,7 +77,12 @@ Also, you can generate intermediate video frame using ours-large model:
 
 ```bash
     $ python run_samples.py  --model_name ours_large --ckpt_path pretrained_model/ours_large_weight.pth --save_output_dir ./output --image_number 0
+
 ```
+
+## Pretrained model
+
+* [[Ours-L(BSERGB)]()]
 
 ## Reference
 > Taewoo Kim, Yujeong Chae, Hyun-kyurl Jang, and Kuk-Jin Yoon" Event-based Video Frame Interpolation with Cross-modal Asymmetric Bidirectional Motion Fields", In _CVPR_, 2023.
