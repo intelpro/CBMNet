@@ -80,7 +80,7 @@ Also, you can generate intermediate video frame using ours-large model:
 
 ```
 
-## Pretrained model
+## Pretrained model on BS-ERGB
 
 The model pretrained on the BS-ERGB dataset can be downloaded from the following link:
 
