@@ -101,7 +101,6 @@ class BSERGB_train_dataset(data.Dataset):
         sample['event_vox_0t'] = event_vox_0t
         sample['event_vox_t1'] = event_vox_t1
         sample['event_vox_t0'] = event_vox_t0
-        import pdb; pdb.set_trace()
         return sample
 
     def __len__(self):
