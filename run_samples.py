@@ -5,7 +5,7 @@ import os
 from models.model_manager import OurModel
 from skimage.io import imread
 import cv2
-from utils import *
+from utils.utils import *
 
 
 torch.backends.cudnn.enabled = True

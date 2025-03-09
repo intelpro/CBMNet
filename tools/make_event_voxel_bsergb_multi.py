@@ -88,10 +88,9 @@ def process_scene(scene, dataset_dir, mode, skip_frame_list, num_bins=16, width=
                     event_0t = event_0t_org[total_mask]
 
                     _event_0t = np.column_stack((event_0t[:, 0], event_0t[:, 1] / 32, event_0t[:, 2] / 32, event_0t[:, 3]))
-                    _event_t0 = event_reverse(_event_0t)
-
-                    event_t0_vox = events_to_voxel_grid(_event_t0, num_bins, width, height)
                     event_0t_vox = events_to_voxel_grid(_event_0t, num_bins, width, height)
+                    _event_t0 = event_reverse(_event_0t.copy())
+                    event_t0_vox = events_to_voxel_grid(_event_t0, num_bins, width, height)
 
                     np.savez_compressed(os.path.join(event_vox_0t_save_dir, event_prefix), data=event_t0_vox)
                     np.savez_compressed(os.path.join(event_vox_t0_save_dir, event_prefix), data=event_0t_vox)
@@ -122,6 +121,7 @@ def generate_voxel_grid(dataset_dir, mode_list, skip_frame_list):
     num_workers = min(mp.cpu_count(), total_scenes)  # 사용 가능한 CPU 코어 수만큼 병렬 처리
 
     with mp.Pool(processes=num_workers) as pool:
+    # with mp.Pool(processes=1) as pool:
         with tqdm(total=total_scenes, desc="[Processing Scenes]") as progress_bar:
             for _ in pool.imap_unordered(process_scene_wrapper, dataset_scenes):
                 progress_bar.update(1)
