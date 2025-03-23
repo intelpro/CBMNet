@@ -110,9 +110,9 @@ class Trainer(object):
 
     def _init_scheduler(self):
         if self.args.mode == 'joint':
-            milestones = [40, 60]
+            milestones = [200, 270]
         elif self.args.mode == 'flow':
-            milestones = [30]
+            milestones = [60]
         else:
             milestones = []
 
