@@ -20,7 +20,8 @@ parser.add_argument('--image_number', type = int, default=0)
 
 parser.add_argument('--model_folder', type = str, default='final_models')
 parser.add_argument('--model_name', type = str, default='ours')
-parser.add_argument('--flow_debug', type = str2bool, default='False')
+parser.add_argument('--flow_tb_debug', type = str2bool, default='False')
+parser.add_argument('--smoothness_weight', type = float, default=10.0)
 parser.add_argument('--ckpt_path',  type=str,   default='pretrained_model/ours_weight.pth')
 args = parser.parse_args()
 
@@ -40,12 +41,13 @@ voxel_t1 = torch.from_numpy(np.load(voxel_t1_name)["data"])[None, ...]
 voxel_t0 = torch.from_numpy(np.load(voxel_t0_name)["data"])[None, ...]
 
 model = OurModel(args)
-model.initialze(args.model_folder, args.model_name)
+model.initialize(args.model_folder, args.model_name)
 
 ckpt = torch.load(args.ckpt_path, map_location='cpu')
 model.load_model(ckpt)
 
 model.cuda()
+model.set_mode('joint')
 with torch.no_grad():
     # patch-wise evaluation
     iter_idx = 0
@@ -78,7 +80,7 @@ with torch.no_grad():
                 _sample[input_key] = sample[input_key][..., h_idx:h_idx+h_size_patch_testing, w_idx:w_idx+w_size_patch_testing]
             model.set_test_input(_sample)
             model.forward_joint_test()
-            out_patch = model.batch['clean_middle_est']
+            out_patch = model.test_outputs['interp_out']
             out_patch_mask = torch.ones_like(out_patch)
             if not_overlap_border:
                 if h_idx < h_idx_list[-1]:
