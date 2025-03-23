@@ -127,7 +127,6 @@ def generate_voxel_grid(dataset_dir, mode_list, skip_frame_list):
                 progress_bar.update(1)
 
 def process_scene_wrapper(params):
-    """멀티프로세싱을 위한 래퍼 함수"""
     scene, dataset_dir, mode, skip_frame_list = params
     process_scene(scene, dataset_dir, mode, skip_frame_list)  # 실제 `process_scene` 실행
 

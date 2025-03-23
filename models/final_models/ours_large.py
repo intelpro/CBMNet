@@ -372,10 +372,15 @@ class FlowNet(nn.Module):
         flow_t0_dict = flow_t0_dict[::-1]
         flow_t1_dict = flow_t1_dict[::-1] 
         ## final output return
+        flow_output_dict = {}
+        flow_output_dict['flow_t0_dict'] = flow_t0_dict
+        flow_output_dict['flow_t1_dict'] = flow_t1_dict
         if self.tb_debug:
-            return flow_t0_dict, flow_t1_dict, event_flow_dict, fusion_flow_dict, image_flow_dict, mask_dict
-        else:
-            return flow_t0_dict, flow_t1_dict
+            flow_output_dict['event_flow_dict'] = event_flow_dict
+            flow_output_dict['fusion_flow_dict'] = fusion_flow_dict
+            flow_output_dict['image_flow_dict'] = image_flow_dict
+            flow_output_dict['mask_dict'] = mask_dict
+        return flow_output_dict
 
 
 class frame_encoder(nn.Module):
@@ -764,6 +769,9 @@ class EventInterpNet(nn.Module):
         self.transformer = Transformer(unit_dim*2)
         # channel scaling convolution
         self.conv_list = nn.ModuleList([conv1x1(unit_dim, unit_dim), conv1x1(unit_dim, unit_dim), conv1x1(unit_dim, unit_dim)])
+            
+    def set_mode(self, mode):
+        self.mode = mode
    
     def bwarp(self, x, flo):
         '''
@@ -838,10 +846,16 @@ class EventInterpNet(nn.Module):
             output_clean.append(torch.clamp(img_out[i], 0, 1))
         return output_clean
 
-    def forward(self, batch, mode):
-        if mode=='flow':
-            return self.flownet(batch)
-        elif mode=='joint':
-            OF_t0, OF_t1 = self.flownet(batch)
-            output_clean = self.synthesis(batch, OF_t0, OF_t1)
-            return output_clean, OF_t0, OF_t1
+    def forward(self, batch):
+        output_dict = {}
+        # --- Flow-only mode ---
+        if self.mode == 'flow':
+            output_dict['flow_out'] = self.flownet(batch)
+        # --- Joint mode: ---
+        elif self.mode == 'joint':
+            flow_out = self.flownet(batch)
+            interp_out = self.synthesis(batch, flow_out['flow_t0_dict'], flow_out['flow_t1_dict'])
+            output_dict.update({'flow_out': flow_out, 'interp_out': interp_out})
+        else:
+            raise ValueError(f"Unsupported mode: {self.mode}")
+        return output_dict
