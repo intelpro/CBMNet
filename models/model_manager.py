@@ -112,8 +112,11 @@ class OurModel:
         self.loss_handler.reset_meters()
 
     def load_model(self, state_dict):
-        self.net.load_state_dict(state_dict)
-        print('load model')
+        if list(state_dict.keys())[0].startswith('module.'):
+            new_state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
+            self.net.load_state_dict(new_state_dict)
+        else:
+            self.net.load_state_dict(state_dict)
 
     def set_test_input(self, sample):
         B, _, H, W = sample['clean_image_first'].shape
