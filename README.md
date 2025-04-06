@@ -88,8 +88,6 @@ This section describes how to test the model on the **BSERGB dataset** using the
 
 You can download the [BSERGB dataset](https://github.com/uzh-rpg/timelens-pp) from the official TimeLens++ GitHub repository.
 
----
-
 ### 2. Preprocess Event Voxel Data
 
 After downloading, the BSERGB dataset should have the following directory structure:
@@ -145,14 +143,14 @@ Then move the file to the `./pretrained_model` directory:
 mkdir -p pretrained_model
 
 # Move the downloaded model to the correct location
-mv /path/to/downloaded/Ours_RELED.pth ./pretrained_model/
+mv /path/to/downloaded/Ours_Large_BSERGB.pth ./pretrained_model/
 ```
 
 Make sure the final path is:
 
 
 ``` bash
-./pretrained_model/Ours_RELED.pth
+./pretrained_model/Ours_Large_BSERGB.pth
 ```
 
 ### 4. Run test scripts
