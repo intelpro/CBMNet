@@ -79,11 +79,83 @@ Also, you can generate intermediate video frame using ours-large model:
 
 ```
 
-## Pretrained model on BS-ERGB
 
-The model pretrained on the BS-ERGB dataset can be downloaded from the following link:
+## Test model on BSERGB dataset
 
-* [[Ours-Large(BS-ERGB)](https://drive.google.com/file/d/1T5ycqQK4KVZQ4pAnNkr2Ff8XIWvhmj_f/view?usp=sharing)]
+This section describes how to test the model on the **BSERGB dataset** using the pre-trained weights.
+
+---
+
+### 1. Download BSERGB Dataset
+
+You can download the BSERGB dataset from the official TimeLens++ GitHub repository:
+
+🔗 [**BSERGB Dataset @ TimeLens++ (GitHub)**](https://github.com/uzh-rpg/timelens-pp)
+
+### 2. Pre-process event voxel data of BSERGB datasets.
+
+After downloading, the BS-ERGB dataset should have the following directory structure:
+
+
+```
+BSERGB/
+├── 1_TEST/
+│   ├── scene_1/
+│   │   ├── images/
+│   │   │   ├── 000000.png
+│   │   │   ├── ...
+│   │   ├── events/
+│   │   │   ├── 000000.npz
+│   │   │   ├── ...
+│   ├── scene_2/
+│   │   ├── ...
+├── 2_VALIDATION/
+│   ├── scene_1/
+│   │   ├── images/
+│   │   ├── events/
+│   │   ├── ...
+├── 3_TRAINING/
+│   ├── scene_1/
+│   │   ├── images/
+│   │   ├── events/
+│   │   ├── ...
+
+```
+
+After that, you have to preprocess raw event data to event voxel grids.
+
+
+```bash
+    $ python tools/preprocess_events.py  --dataset_dir BSERGB_DATASET_DIR --mode 1_TEST
+
+```
+- ``--dataset_dir BSERGB_DATASET_DIR``: Specifies the BSERGB dataset directory.
+
+With this following command, you can pre-process raw events to the event voxel grids. 
+
+### 3. Download Pretrained Weights
+
+Download the our-large weights (trained on the BSERGB dataset) and place the downloaded model inside the ./pretrained_model directory.
+
+🔗 **[Ours-Large(BS-ERGB](https://drive.google.com/file/d/1T5ycqQK4KVZQ4pAnNkr2Ff8XIWvhmj_f/view?usp=sharing)**
+Then move the file to the `./pretrained_model` directory:
+
+``` bash
+# Ensure the directory exists
+mkdir -p pretrained_model
+
+# Move the downloaded model to the correct location
+mv /path/to/downloaded/Ours_RELED.pth ./pretrained_model/
+```
+
+### 4. Run test scripts
+
+Once preprocessing and downloading pretrained model are complete, you can test the model on the BSERGB datsets.
+
+``` bash
+    $ python test_datasets.py  --dataset_dir BSERGB_DATASET_DIR
+```
+
 
 ## Reference
 > Taewoo Kim, Yujeong Chae, Hyun-kyurl Jang, and Kuk-Jin Yoon" Event-based Video Frame Interpolation with Cross-modal Asymmetric Bidirectional Motion Fields", In _CVPR_, 2023.
