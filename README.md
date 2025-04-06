@@ -184,6 +184,8 @@ Once preprocessing and downloading the pretrained model are complete, you can te
 
 After running this script, gt and result images will be generated inside the ./output directory.
 
+By evaluating the output images, you can reproduce the same quantitative results reported in our paper.
+
 ## 🚀 Train model on BSERGB Dataset
 
 Training instructions and documentation will be available in the near future. (Work in progress)

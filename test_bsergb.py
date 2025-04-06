@@ -66,13 +66,10 @@ class Trainer(object):
 
     def _init_metrics(self):
         self.PSNR_calculator = PSNR()
-        self.SSIM_calculator = SSIM()
 
     def test_joint(self, epoch=0):
         psnr_total = AverageMeter()
-        ssim_total = AverageMeter()
         psnr_interval = AverageMeter()
-        ssim_interval = AverageMeter()
 
         self.model.eval()
         self.model.set_mode('joint')
@@ -95,37 +92,31 @@ class Trainer(object):
                     pred = self.model.test_outputs['interp_out']
 
                     psnr = self.PSNR_calculator(gt, pred).mean().item()
-                    ssim = self.SSIM_calculator(gt, pred).mean().item()
 
                     psnr_interval.update(psnr)
-                    ssim_interval.update(ssim)
                     psnr_total.update(psnr)
-                    ssim_total.update(ssim)
 
                     output_name = os.path.join(output_save_path, str(i).zfill(5) + '.png')
                     vutils.save_image(pred[0], output_name)
                     gt_name = os.path.join(gt_save_path, str(i).zfill(5) + '.png')
                     vutils.save_image(gt[0], gt_name)
 
-                print(f"[Skip {skip_num}] PSNR: {psnr_interval.avg:.2f}, SSIM: {ssim_interval.avg:.4f}")
+                print(f"[Skip {skip_num}] PSNR: {psnr_interval.avg:.2f}")
                 psnr_interval.reset()
-                ssim_interval.reset()
 
         avg_psnr = psnr_total.avg
-        avg_ssim = ssim_total.avg
 
-        print(f"\n[Test Summary] Avg PSNR: {avg_psnr:.2f}, Avg SSIM: {avg_ssim:.4f}")
+        print(f"\n[Test Summary] Avg PSNR: {avg_psnr:.2f}")
 
         log_path = os.path.join('./logs', self.args.experiment_name, f'test_result_epoch{epoch}.txt')
         with open(log_path, 'w') as f:
             f.write(f"Experiment: {self.args.experiment_name}\n")
             f.write(f"Epoch: {epoch}\n")
             f.write(f"Average PSNR: {avg_psnr:.2f}\n")
-            f.write(f"Average SSIM: {avg_ssim:.4f}\n")
 
         torch.cuda.empty_cache()
         self.model.test_outputs = {}
-        return avg_psnr, avg_ssim
+        return avg_psnr
 
 
 if __name__ == '__main__':
