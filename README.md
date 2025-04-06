@@ -86,9 +86,7 @@ This section describes how to test the model on the **BSERGB dataset** using the
 
 ### 1. Download BSERGB Dataset
 
-You can download the BSERGB dataset from the official TimeLens++ GitHub repository:
-
-🔗 [**BSERGB Dataset @ TimeLens++ (GitHub)**](https://github.com/uzh-rpg/timelens-pp)
+You can download the BSERGB dataset from the official TimeLens++ GitHub repository ([link](https://github.com/uzh-rpg/timelens-pp)).
 
 ---
 
