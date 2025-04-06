@@ -109,12 +109,3 @@ def get_BSERGB_val_dataset(data_dir, skip_list, mode='1_TEST'):
     return dataset_dict
 
 
-
-if __name__ == '__main__':
-    data_dir = '/home/user/dataset/bsergb_interpolation_v2/'
-    mode = '1_TEST'
-    data_full_path = os.path.join(data_dir, mode)
-    scene_list = os.listdir(data_full_path)
-    data_with_scene = os.path.join(data_full_path, scene_list[0])
-    dataset = BSERGB_val_dataset(data_with_scene, 3)
-    hello = dataset.__getitem__(0)

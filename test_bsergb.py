@@ -102,10 +102,8 @@ class Trainer(object):
                     psnr_total.update(psnr)
                     ssim_total.update(ssim)
 
-                    # 이미지 저장
                     output_name = os.path.join(output_save_path, str(i).zfill(5) + '.png')
                     vutils.save_image(pred[0], output_name)
-                    # gt 저장
                     gt_name = os.path.join(gt_save_path, str(i).zfill(5) + '.png')
                     vutils.save_image(gt[0], gt_name)
 
@@ -118,7 +116,6 @@ class Trainer(object):
 
         print(f"\n[Test Summary] Avg PSNR: {avg_psnr:.2f}, Avg SSIM: {avg_ssim:.4f}")
 
-        # 로그 저장
         log_path = os.path.join('./logs', self.args.experiment_name, f'test_result_epoch{epoch}.txt')
         with open(log_path, 'w') as f:
             f.write(f"Experiment: {self.args.experiment_name}\n")
