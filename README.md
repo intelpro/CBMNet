@@ -80,11 +80,9 @@ Also, you can generate intermediate video frame using ours-large model:
 ```
 
 
-## Test model on BSERGB dataset
+## 🚀 Quick Test on BSERGB Dataset
 
 This section describes how to test the model on the **BSERGB dataset** using the pre-trained weights.
-
----
 
 ### 1. Download BSERGB Dataset
 
@@ -92,9 +90,11 @@ You can download the BSERGB dataset from the official TimeLens++ GitHub reposito
 
 🔗 [**BSERGB Dataset @ TimeLens++ (GitHub)**](https://github.com/uzh-rpg/timelens-pp)
 
-### 2. Pre-process event voxel data of BSERGB datasets.
+---
 
-After downloading, the BS-ERGB dataset should have the following directory structure:
+### 2. Preprocess Event Voxel Data
+
+After downloading, the BSERGB dataset should have the following directory structure:
 
 
 ```
@@ -113,16 +113,18 @@ BSERGB/
 │   ├── scene_1/
 │   │   ├── images/
 │   │   ├── events/
+│   ├── scene_2/
 │   │   ├── ...
 ├── 3_TRAINING/
 │   ├── scene_1/
 │   │   ├── images/
 │   │   ├── events/
+│   ├── scene_2/
 │   │   ├── ...
 
 ```
 
-After that, you have to preprocess raw event data to event voxel grids.
+Now, convert the raw event data into event voxel grids using the following command:
 
 
 ```bash
@@ -130,8 +132,8 @@ After that, you have to preprocess raw event data to event voxel grids.
 
 ```
 - ``--dataset_dir BSERGB_DATASET_DIR``: Specifies the BSERGB dataset directory.
+- ``--mode 1_TEST``: Select the mode to convert raw events into event voxels. Choose 1_TEST if you only want to perform testing.
 
-With this following command, you can pre-process raw events to the event voxel grids. 
 
 ### 3. Download Pretrained Weights
 
@@ -148,9 +150,16 @@ mkdir -p pretrained_model
 mv /path/to/downloaded/Ours_RELED.pth ./pretrained_model/
 ```
 
+Make sure the final path is:
+
+
+``` bash
+./pretrained_model/Ours_RELED.pth
+```
+
 ### 4. Run test scripts
 
-Once preprocessing and downloading pretrained model are complete, you can test the model on the BSERGB datsets.
+Once preprocessing and downloading the pretrained model are complete, you can test the model on the BSERGB dataset:
 
 ``` bash
     $ python test_datasets.py  --dataset_dir BSERGB_DATASET_DIR
