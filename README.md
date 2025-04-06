@@ -135,7 +135,8 @@ Now, convert the raw event data into event voxel grids using the following comma
 
 Download the our-large weights (trained on the BSERGB dataset) and place the downloaded model inside the ./pretrained_model directory.
 
-🔗 **[Ours-Large(BS-ERGB](https://drive.google.com/file/d/1T5ycqQK4KVZQ4pAnNkr2Ff8XIWvhmj_f/view?usp=sharing)**
+🔗 **[Ours-Large(BSERGB)](https://drive.google.com/file/d/1T5ycqQK4KVZQ4pAnNkr2Ff8XIWvhmj_f/view?usp=sharing)**
+
 Then move the file to the `./pretrained_model` directory:
 
 ``` bash
