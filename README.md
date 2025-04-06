@@ -126,6 +126,30 @@ Now, convert the raw event data into event voxel grids using the following comma
 - ``--dataset_dir BSERGB_DATASET_DIR``: Specifies the BSERGB dataset directory.
 - ``--mode 1_TEST``: Select the mode to convert raw events into event voxels. Choose 1_TEST if you only want to perform testing.
 
+### 🛠️ Event Voxel Preprocessing Output
+
+After preprocessing, event voxel files will be generated and saved into the **target folder**.  
+For each sample, three types of voxel grids will be saved:
+
+- `0t`: Events from the start frame to the interpolated frame  
+- `t0`: Reversed version of `0t` (used for backward flow)  
+- `t1`: Events from the interpolated frame to the end frame  
+
+Each event voxel is stored in the following naming format:
+
+<start_frame_idx>-<interp_frame_idx>-<end_frame_idx>_{suffix}.npz
+
+Each index is zero-padded using `zfill(6)`. The `{suffix}` represents one of the three types: `0t`, `t0`, or `t1`.
+
+#### 📁 Example
+
+```text
+000000-000002-000004_0t.npz   # event voxel from 000000 to 000002  
+000000-000002-000004_t0.npz   # reversed event voxel from 000002 to 000000  
+000000-000002-000004_t1.npz   # event voxel from 000002 to 000004
+```
+
+Once the voxel preprocessing is complete and the files are generated in the proper format, you can proceed to download the pretrained model and run the test script.
 
 ### 3. Download Pretrained Weights
 
@@ -157,6 +181,14 @@ Once preprocessing and downloading the pretrained model are complete, you can te
 ``` bash
     $ python test_bsergb.py  --dataset_dir BSERGB_DATASET_DIR
 ```
+
+After running this script, gt and result images will be generated inside the ./output directory.
+
+## 🚀 Train model on BSERGB Dataset
+
+Training instructions and documentation will be available in the near future. (Work in progress)
+
+In the meantime, if you need to proceed quickly, please refer to the `train.py` file for rough guide.
 
 
 ## Reference
