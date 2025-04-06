@@ -94,30 +94,33 @@ After downloading, the BSERGB dataset should have the following directory struct
 
 
 ```
-BSERGB/
-├── 1_TEST/
-│   ├── scene_1/
+├── BSERGB/
+│   ├── 1_TEST/
+│   │   ├── scene_1/
+│   │   │   ├── images/
+│   │   │   │   ├── 000000.png
+│   │   │   │   ├── ...
+│   │   │   ├── events/
+│   │   │   │   ├── 000000.npz
+│   │   │   │   ├── ...
+│   ├── scene_2/
 │   │   ├── images/
-│   │   │   ├── 000000.png
+│   │   ├── events/
+│   │   ├── ...
+│
+│   ├── 2_VALIDATION/
+│   │   ├── scene_1/
+│   │   │   ├── images/
+│   │   │   ├── events/
+│   │   ├── scene_2/
 │   │   │   ├── ...
-│   │   ├── events/
-│   │   │   ├── 000000.npz
+│
+│   ├── 3_TRAINING/
+│   │   ├── scene_1/
+│   │   │   ├── images/
+│   │   │   ├── events/
+│   │   ├── scene_2/
 │   │   │   ├── ...
-│   ├── scene_2/
-│   │   ├── ...
-├── 2_VALIDATION/
-│   ├── scene_1/
-│   │   ├── images/
-│   │   ├── events/
-│   ├── scene_2/
-│   │   ├── ...
-├── 3_TRAINING/
-│   ├── scene_1/
-│   │   ├── images/
-│   │   ├── events/
-│   ├── scene_2/
-│   │   ├── ...
-
 ```
 
 Now, convert the raw event data into event voxel grids using the following command:
