@@ -96,7 +96,6 @@ class Trainer(object):
 
                     psnr = self.PSNR_calculator(gt, pred).mean().item()
                     ssim = self.SSIM_calculator(gt, pred).mean().item()
-                    print(psnr)
 
                     psnr_interval.update(psnr)
                     ssim_interval.update(ssim)
