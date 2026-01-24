@@ -179,7 +179,7 @@ Make sure the final path is:
 Once preprocessing and downloading the pretrained model are complete, you can test the model on the BSERGB dataset:
 
 ``` bash
-    $ python test_bsergb.py  --dataset_dir BSERGB_DATASET_DIR
+    $ python test_bsergb.py  --data_dir BSERGB_DATASET_DIR
 ```
 
 After running this script, gt and result images will be generated inside the ./output directory.
